@@ -11,4 +11,10 @@ Also user can see the number of visitors for his posts.
 
 ![alt text](http://i.imgur.com/7nqgMQk.png "Simple Clean Blog")
 
+***
+
+
+> Note For Front-End: The origianl Material Template from [MDL Site](https://getmdl.io/templates/index.html) and i made some edits and fixes.
+and
+> The same thing  with admin panel [Modular Admin](https://github.com/modularcode/modular-admin-html) and i made some edits and fixes
 
