@@ -1,0 +1,19 @@
+<% include ./_cpanelHeader.ejs%>
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%for(var p of tags){%>
+    <tr>
+        <td></td>
+        <td><%= p.Name %></td>
+    </tr>
+    <%}%>
+    </tbody>
+</table>
+
+<% include ./_cpanelFooter.ejs%>

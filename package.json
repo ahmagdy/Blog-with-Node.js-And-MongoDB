@@ -1,0 +1,22 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "A simple CMS (BLOG) for manage posts",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ahmad Magdy",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-node": "^0.1.0",
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.1",
+    "express": "^4.14.0",
+    "jsonwebtoken": "^7.1.9",
+    "mongoose": "^4.5.9",
+    "mongoose-unique-validator": "^1.0.2",
+    "morgan": "^1.7.0"
+  }
+}

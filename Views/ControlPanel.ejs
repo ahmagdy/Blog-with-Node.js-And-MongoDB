@@ -1,0 +1,33 @@
+<% include ./_cpanelHeader.ejs%>
+        <div class="jumbotron">
+            <h1>Welcome the <%= user.Role%> panel</h1>
+        </div>
+        <%if(user.Role == 'admin'){%>
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>username</th>
+                <th>Role</th>
+                <th>Bio</th>
+                <th>Posts</th>
+                <th>Edit</th>
+            </tr>
+            </thead>
+            <tbody>
+                <%for(var u of users){%>
+                <tr>
+                    <td></td>
+                    <td><%= u.name %></td>
+                    <td><%= u.username %></td>
+                    <td><%= u.Role %></td>
+                    <td><%= u.bio %></td>
+                    <td><%= 0 %></td>
+                    <td><a class="btn btn-primary" href="controlpanel/users/edit/<%= u.username %>">Edit</a></td>
+                </tr>
+            <%}%>
+            </tbody>
+        </table>
+        <%}%>
+<% include ./_cpanelFooter.ejs%>

@@ -1,0 +1,52 @@
+<% include ./_headlayout.ejs%>
+    <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+        <div class="mdl-card mdl-cell mdl-cell--12-col">
+            <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                <h4 class="mdl-cell mdl-cell--12-col"><%= user.name %></h4>
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                    <div class="section__circle-container__circle mdl-color--primary"></div>
+                </div>
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                    <h5>Bio</h5>
+                    <%=user.bio%>
+                </div>
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                    <div class="section__circle-container__circle mdl-color--primary"></div>
+                </div>
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                    <h5>Social Media Accounts</h5>
+                    <a class="zmdi zmdi-facebook-box zmdi-hc-2x" href="<%=user.Social.FaceBook%>" target="_blank"></a>
+                        <a class="zmdi zmdi-twitter-box zmdi-hc-2x" href="<%=user.Social.Twitter%>" target="_blank"></a>
+                        <a class="zmdi zmdi-globe zmdi-hc-2x" href="<%=user.Social.WebSite%>" target="_blank"></a>
+                        <a class="zmdi zmdi-linkedin-box zmdi-hc-2x" href="<%=user.Social.LinkedIn%>" target="_blank"></a>
+                        <a class="zmdi zmdi-youtube zmdi-hc-2x" href="<%=user.Social.YouTube%>" target="_blank"></a>
+                </div>
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                    <div class="section__circle-container__circle mdl-color--primary"></div>
+                </div>
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                    <h5>Posts</h5>
+                    <%for( post of posts){%>
+                        <%=post.Title%> <a target="_blank" href="/posts/<%=post.posturl%>">Read Full Post</a>.
+                        <br/>
+                    <%}%>
+                </div>
+            </div>
+            <%if(show){%>
+            <div class="mdl-card__actions">
+                <a href="./controlpanel" target="_blank" class="mdl-button">Goto Admin Panel</a>
+                 <a href="/profile/<%= user.username%>" target="_blank" class="mdl-button">Get Profile URL</a>
+            </div>
+            <%}%>
+        </div>
+        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn2">
+            <i class="material-icons">more_vert</i>
+        </button>
+        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn2">
+            <li class="mdl-menu__item">Facebook</li>
+            <li class="mdl-menu__item" disabled>Twitter</li>
+            <li class="mdl-menu__item">G+</li>
+        </ul>
+    </section>
+
+<% include ./_footerlayout.ejs%>

@@ -1,0 +1,78 @@
+<% include ./_cpanelHeader.ejs%>
+<div class="title-block">
+    <h3 class="title">
+        Edit Post <span class="sparkline bar" data-type="bar"></span>
+    </h3> </div>
+<form name="item" method="post">
+    <div class="card card-block">
+        <div class="form-group row"> <label class="col-sm-2 form-control-label text-xs-right">
+                Title:
+            </label>
+            <div class="col-sm-10"> <input type="text" name="title" class="form-control boxed" value="<%= post.Title%>" placeholder="" required> </div>
+        </div>
+        <div class="form-group row"> <label class="col-sm-2 form-control-label text-xs-right">
+                Content:
+            </label>
+            <div class="col-sm-10">   <textarea name="content" class="form-control boxed"  cols="20" rows="10" ><%= post.Content%></textarea> </div>
+        </div>
+        <div class="form-group row"> <label class="col-sm-2 form-control-label text-xs-right">
+                Category:
+            </label>
+
+            <div class="col-sm-10"> <select name="category" class="c-select form-control boxed">
+                    <option>Select Category</option>
+                    <%for(c of cats){%>
+                        <%if(c.Name == post.category){%>
+                            <option selected value="<%= c.Name %>"><%= c.Name %></option>
+                            <%= c.Name %>
+                            <%continue%>
+                        <%}%>
+                        <option value="<%= c.Name %>"><%= c.Name %></option>
+                    <%}%>
+                </select> </div>
+        </div>
+
+        <div class="form-group row"> <label class="col-sm-2 form-control-label text-xs-right">
+                Tags:
+            </label>
+            <div class="col-sm-10"> <input type="text" value="<%= post.tags%>" name="tags" class="form-control boxed" placeholder="Tags separeted by comma"> </div>
+        </div>
+
+    <div class="form-group row"> <label class="col-sm-2 form-control-label text-xs-right">
+                ImageURL:
+            </label>
+            <div class="col-sm-10"> <input type="text" value="<%= post.ImageURL%>" name="image" class="form-control boxed" placeholder=""> </div>
+        </div>
+        <input type="text" hidden name="posturl" value="<%=post.posturl%>">
+
+        <div class="form-group row">
+            <div class="col-sm-10 col-sm-offset-2"> <button type="submit" class="btn btn-primary">
+                    Submit
+                </button> </div>
+        </div>
+    </div>
+</form>
+
+
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script>tinymce.init({
+    selector: 'textarea',
+    height: 500,
+    theme: 'modern',
+    plugins: ['advlist autolink lists link image charmap print preview hr anchor pagebreak',
+    'searchreplace wordcount visualblocks visualchars code fullscreen',
+    'insertdatetime media nonbreaking save table contextmenu directionality',
+    'emoticons template paste textcolor colorpicker textpattern imagetools'
+    ],
+   toolbar1: 'insertfile undo redo | styleselect | fontsizeselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
+   toolbar2: 'print preview media | link image | forecolor backcolor emoticons ',
+   image_advtab: true,
+   templates: [
+   { title: 'Test template 1', content: 'Test 1' },
+   { title: 'Test template 2', content: 'Test 2' }
+   ],
+   content_css: ['//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+    '//www.tinymce.com/css/codepen.min.css'
+   ]
+   });</script>
+<% include ./_cpanelFooter.ejs%>

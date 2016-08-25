@@ -1,0 +1,25 @@
+<% include ./_cpanelHeader.ejs%>
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%for(var p of posts){%>
+    <tr>
+        <td></td>
+        <td><%= p.Title %></td>
+        <td><%= p.Content %></td>
+        <td><%= p.categorie %></td>
+        <td><%= p.tags %></td>
+        <td><%= 0 %></td>
+        <td><a class="btn btn-primary" href="controlpanel/posts/edit/<%= p.posturl %>">Edit</a></td>
+        <td><a class="btn btn-primary" href="controlpanel/posts/delete/<%= p.posturl %>">Delete</a></td>
+    </tr>
+    <%}%>
+    </tbody>
+</table>
+
+<% include ./_cpanelFooter.ejs%>

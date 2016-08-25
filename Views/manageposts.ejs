@@ -1,0 +1,50 @@
+<% include ./_cpanelHeader.ejs%>
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Category</th>
+        <th>Tags</th>
+        <th>Visistors</th>
+        <th>Author</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%for(var p of posts){%>
+    <tr>
+        <td></td>
+        <td id="cp"><%= p.Title %></td>
+        <td><%- p.Content.substr(0,160)+ "..." %></td>
+        <td><%= p.category %></td>
+        <td><%= p.tags %></td>
+        <td><%= p.visitors %></td>
+        <td><%= p.Author %></td>
+        <td><a class="btn btn-primary" href="/controlpanel/posts/edit/<%= p.posturl %>">Edit</a></td>
+        <td><a class="btn btn-primary postdelete" href="/controlpanel/posts/delete/<%= p.posturl %>">Delete</a></td>
+        <input type="text" hidden id="posturl" value="<%= p.posturl %>">
+    </tr>
+    <%}%>
+    </tbody>
+</table>
+<script   src="/js/jquery-3.0.0.min.js"></script>
+<script>
+$('.postdelete').click(function(event){
+        event.preventDefault();
+        var c = window.confirm('Are You sure');
+        if(c){
+            $.ajax({
+            type:'POST',
+            url:$('.postdelete').attr('href')
+            }).always(function(){
+                window.location.href= '/controlpanel/posts';
+            }).fail(function(err){
+                console.log(err);
+            });
+            
+        }
+    });
+        
+</script>
+<% include ./_cpanelFooter.ejs%>

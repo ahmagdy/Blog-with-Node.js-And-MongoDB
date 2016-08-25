@@ -15,3 +15,9 @@
 *.PDF	 diff=astextplain
 *.rtf	 diff=astextplain
 *.RTF	 diff=astextplain
+
+
+node_modules/* linguist-vendored=false
+
+views/* linguist-vendored
+*.ejs linguist-language=JavaScript

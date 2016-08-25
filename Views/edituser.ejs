@@ -1,0 +1,99 @@
+<% include ./_headlayout.ejs%>
+
+<div id ="mycard">
+
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp signupform">
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">Edit Details:</h2>
+        </div>
+
+        <div class="mdl-card__supporting-text">
+            <div class=" errormessage" id="msgcolor">
+                <div id="message"></div>
+            </div>
+            <form method="post">
+                    <div id="username">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" required name="name" value="<%= user.name%>">
+                            <label class="mdl-textfield__label" for="username">Name:</label>
+                            <span class="mdl-textfield__error">Enter your full Name</span>
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" readonly required name="username" value="<%= user.username%>">
+                            <label class="mdl-textfield__label" for="username">Username</label>
+                            <span class="mdl-textfield__error">Enter the username</span>
+                        </div>
+                    </div>
+                <div id="email">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" required name="email" value="<%= user.email%>">
+                        <label class="mdl-textfield__label" for="username">Email</label>
+                        <span class="mdl-textfield__error">Enter the Email</span>
+                    </div>
+                </div>
+
+                    <div id="password">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="password"  name="password" >
+                            <label class="mdl-textfield__label" for="password">Password</label>
+                            <span class="mdl-textfield__error">Enter a valid Passsword!</span>
+                        </div>
+                    </div>
+
+                <div id="Bio">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <textarea rows="3" class="mdl-textfield__input" type="text" required name="bio"><%- user.bio%></textarea>
+                        <label class="mdl-textfield__label" for="bio">Bio</label>
+                        <span class="mdl-textfield__error">Enter the Bio information</span>
+                    </div>
+                </div>
+                <%if(isAdmin){%>
+                    <div id="email">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text"  name="Role" value="<%= user.Role%>">
+                        <label class="mdl-textfield__label" for="username">Role</label>
+                    </div>
+                    </div>
+                <%}%>
+                <div id="Social">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text"  name="facebook" value="<%= user.Social.FaceBook%>">
+                        <label class="mdl-textfield__label" for="facebook">Facebook Account:</label>
+                        <span class="mdl-textfield__error">Enter the FB URL</span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text"  name="twitter" value="<%= user.Social.Twitter%>">
+                        <label class="mdl-textfield__label" for="facebook">Twitter Account:</label>
+                        <span class="mdl-textfield__error">Enter the Twitter URL</span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text"  name="website" value="<%= user.Social.WebSite%>">
+                        <label class="mdl-textfield__label" for="facebook">WebSite Link:</label>
+                        <span class="mdl-textfield__error">Enter the site URL</span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text"  name="linkedin" value="<%= user.Social.LinkedIn%>">
+                        <label class="mdl-textfield__label" for="facebook">LinkedIn:</label>
+                        <span class="mdl-textfield__error">Enter the Linkedin URL</span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text"  name="youtube" value="<%= user.Social.YouTube%>">
+                        <label class="mdl-textfield__label" for="youtube">Youtube:</label>
+                        <span class="mdl-textfield__error">Enter the Youtube URL</span>
+                    </div>
+                </div>
+
+                    <div>
+                        <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" value="Update" >
+                        <a href="/" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Cancel</a>
+                    </div>
+            </form>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<% include ./_footerlayout.ejs%>
